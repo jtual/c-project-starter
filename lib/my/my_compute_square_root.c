@@ -1,26 +1,21 @@
 /*
 ** EPITECH PROJECT, 2021
-** my_compute_square_root
+** star.c
 ** File description:
-** Return the sqrt of a number
+** star.c
 */
-
-#include <stdio.h>
 
 int my_compute_square_root(int nb)
 {
-    float sqrt = (float)nb / (float)2;
-    float tmp = 0;
+    int res = 0;
+    int i = 0;
 
-    if (nb < 0)
-        return 0;
-
-    while (tmp != sqrt) {
-        tmp = sqrt;
-        sqrt = (nb / tmp + tmp) / 2;
+    while (res < nb) {
+        res = i * i;
+        i++;
     }
-    if (sqrt <= -2147483648 || sqrt >= 2147483647 || sqrt == (long)sqrt)
-        return sqrt;
+    if (res == nb)
+        return i;
     else
         return 0;
 }

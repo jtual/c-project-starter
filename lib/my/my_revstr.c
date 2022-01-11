@@ -1,22 +1,25 @@
 /*
 ** EPITECH PROJECT, 2021
-** my_revstr
+** star.c
 ** File description:
-** Reverse a string
+** star.c
 */
 
-int my_strlen(char const *str);
+#include <stdio.h>
 
 char *my_revstr(char *str)
 {
-    int length = my_strlen(str);
-    int start;
-    int tmp;
+    int len = 0;
+    int i = 0;
+    char temp;
 
-    for (start = 0; start < length / 2; start++) {
-        tmp = str[start];
-        str[start] = str[length - 1 - start];
-        str[length - 1 - start] = tmp;
+    for (; str[len] != '\0'; len++);
+    len--;
+    while (i < len / 2) {
+        temp = str[i];
+        str[i] = str[len - i];
+        str[len - i] = temp;
+        i++;
     }
     return str;
 }

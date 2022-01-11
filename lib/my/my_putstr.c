@@ -1,16 +1,19 @@
 /*
 ** EPITECH PROJECT, 2021
-** my_putstr
+** my_swap.c
 ** File description:
-** Display character of string
+** my swap
 */
 
-#include <unistd.h>
-
-int my_strlen(char const *str);
+void my_putchar(char c);
 
 int my_putstr(char const *str)
 {
-    write(1, str, my_strlen(str));
+    int i = 0;
+
+    while (str[i] != '\0') {
+        my_putchar(str[i]);
+        i++;
+    }
     return 0;
 }

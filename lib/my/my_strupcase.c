@@ -1,19 +1,18 @@
 /*
 ** EPITECH PROJECT, 2021
-** my_strupcase
+** star.c
 ** File description:
-** Uppercase letters
+** star.c
 */
-
-int my_strlen(char const *str);
 
 char *my_strupcase(char *str)
 {
-    int i;
+    int i = 0;
 
-    for (i = 0; i < my_strlen(str); i++) {
-        if (str[i] >= 97 && str[i] <= 122)
+    while (str[i] != '\0') {
+        if (str[i] <= 'z' && str[i] >= 'a')
             str[i] -= 32;
+        i++;
     }
     return str;
 }

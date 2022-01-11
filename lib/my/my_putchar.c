@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2021
-** my_putchar
+** my_print_digits.c
 ** File description:
-** Function to display only 1 character
+** print digits in ascending order
 */
 
 #include <unistd.h>

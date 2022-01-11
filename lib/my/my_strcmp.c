@@ -1,17 +1,20 @@
 /*
 ** EPITECH PROJECT, 2021
-** my_strcmp
+** star.c
 ** File description:
-** Compare two strings
+** star.c
 */
+
+int my_strlen(char const *str);
+int my_strncmp(char const *s1, char const *s2, int n);
 
 int my_strcmp(char const *s1, char const *s2)
 {
-    int i = 0;
+    int s1_len = my_strlen(s1);
+    int s2_len = my_strlen(s2);
 
-    while (s1[i] == s2[i] && s1[i] && s2[i])
-        i++;
-    if (s1[i] == '\0' && s2[i] == '\0')
-        return 0;
-    return (s1[i] - s2[i]);
+    if (s1_len >= s2_len)
+        return (my_strncmp(s1, s2, s1_len));
+    else
+        return (my_strncmp(s1, s2, s2_len));
 }

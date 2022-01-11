@@ -1,36 +1,28 @@
 /*
 ** EPITECH PROJECT, 2021
-** my_strstr
+** star.c
 ** File description:
-** Look for a pattern to find in a string
+** star.c
 */
 
+#include <stdio.h>
+
 int my_strlen(char const *str);
-
-static char *look_for_pattern(char *str, char const *to_find, int *i, int *j)
-{
-    int length = my_strlen(to_find);
-
-    while (str[(*i) + (*j)] == to_find[(*j)]) {
-        if (!(my_strlen(str) - *i < length) && *j == length - 1) {
-            return str + *i;
-        }
-        (*j)++;
-    }
-    *j = 0;
-    (*i)++;
-    return 0;
-}
 
 char *my_strstr(char *str, char const *to_find)
 {
     int i = 0;
     int j = 0;
+    int len_find = my_strlen(to_find);
 
     while (str[i] != '\0') {
-        char *res = look_for_pattern(str, to_find, &i, &j);
-        if (res != 0)
-            return res;
+        if (str[i] == to_find[j])
+            j++;
+        else
+            j = 0;
+        if (j == len_find - 1)
+            return (str + i - len_find + 2);
+        i++;
     }
     return 0;
 }
