@@ -1,23 +1,24 @@
 /*
 ** EPITECH PROJECT, 2021
-** my_strncat
+** star.c
 ** File description:
-** Concatenate two strings
+** star.c
 */
 
-int my_strlen(char const *str);
+#include <stdio.h>
 
 char *my_strncat(char *dest, char const *src, int nb)
 {
-    int dest_length = my_strlen(dest);
-    unsigned int size = nb;
+    int i = 0;
     int j = 0;
 
-    for (int i = 0; i < dest_length + size; i++) {
-        if (i >= dest_length) {
-            dest[i] = src[j];
-            j++;
-        }
+    while (dest[i] != '\0')
+        i++;
+    while (j <= nb && src[j] != '\0') {
+        dest[i] = src[j];
+        i++;
+        j++;
     }
+    dest[i] == '\0';
     return dest;
 }

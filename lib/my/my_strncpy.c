@@ -1,19 +1,17 @@
 /*
 ** EPITECH PROJECT, 2021
-** my_strncpy
+** star.c
 ** File description:
-** Copy n char of string
+** star.c
 */
 
-int my_strlen(char const *str);
-
-char *my_strncpy(char *dest, char const *src , int n)
+char *my_strncpy(char *dest, char const *src, int n)
 {
-    int i;
+    int i = 0;
 
-    for (i = 0; src[i] != '\0' && i < n; i++)
+    while (i < n || dest[i] != '\0') {
         dest[i] = src[i];
-    for (int j = i; j < n; j++)
-        dest[j] = '\0';
+        i++;
+    }
     return dest;
 }

@@ -1,86 +1,76 @@
 /*
 ** EPITECH PROJECT, 2021
-** my_str_to_word_array
+** star.c
 ** File description:
-** Split a string into words
+** star.c
 */
 
 #include <stdlib.h>
+#include <stdio.h>
 
-int my_strlen(char const *str);
-int is_anum(char const str);
-char *my_strdup(char const *src);
+int my_putstr(char const *str);
 
-static int get_words_amount(char const *str)
+int is_alpha_num(char a)
 {
-    int count = 0;
+    int is_alpha = (a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z');
+    int is_num = (a >= '0' && a <= '9');
+
+    return (is_alpha || is_num);
+}
+
+int count_words(char const *str)
+{
+    int nb_words = 0;
     int is_next_num = 0;
     int is_next_end = 0;
-
     for (int i = 0; str[i] != '\0'; i++) {
-        is_next_num = (is_anum(str[i]) && !is_anum(str[i + 1]));
-        is_next_end = (is_anum(str[i]) && str[i + 1] == '\0');
+        is_next_num = (is_alpha_num(str[i]) && (!is_alpha_num(str[i + 1])));
+        is_next_end = (is_alpha_num(str[i]) && str[i + 1] == '\0');
         if (is_next_num || is_next_end)
-            count++;
+            nb_words++;
     }
-    return count;
+    return nb_words;
 }
 
-static char **add_to_array(char const *str, int cnt, char **arr, int range[2])
+char *fill_array(char const *str, int i)
 {
-    int from = range[0];
-    int to = range[1];
+    char *dest;
     int j = 0;
-    int length = my_strlen(str);
-    char *word = malloc(sizeof(char) * (to - from + 1));
+    int len = 0;
 
-    for (int i = 0; i < length; i++) {
-        if (i >= from && i < to) {
-            word[j] = str[i];
-            j++;
-        }
+    while (is_alpha_num(str[i])) {
+        i++;
+        len++;
     }
-    word[j] = '\0';
-    arr[cnt] = my_strdup(word);
-    free(word);
-    return arr;
-}
-
-static char **get_array(char const *str, int *count)
-{
-    char **arr = malloc(sizeof(char *) * (get_words_amount(str) + 1));
-    int from = 0;
-    int range[2] = {0};
-    int is_next_num = 0;
-    int is_next_end = 0;
-
-    for (int i = 0; str[i] != '\0'; i++) {
-        is_next_num = (is_anum(str[i]) && !is_anum(str[i + 1]));
-        is_next_end = (is_anum(str[i]) && str[i + 1] == '\0');
-        if ((!is_anum(str[i]) && !is_anum(str[i + 1])) || !is_anum(str[i])) {
-            from = i + 1;
-        } else if (is_next_num || is_next_end) {
-            range[0] = from;
-            range[1] = i + 1;
-            arr = add_to_array(str, *count, arr, range);
-            *count = *count + 1;
-            from = i;
-        }
+    dest = malloc(sizeof(char) * (len));
+    dest[len] = '\0';
+    while (j < len) {
+        dest[j] = str[i - len];
+        j++;
+        i++;
     }
-    return arr;
+    return dest;
 }
 
 char **my_str_to_word_array(char const *str)
 {
-    char **arr = NULL;
-    int count = 0;
+    int nb_words = 0;
+    int j = 0;
+    char **arr;
 
-    if (!str) {
+    if (str == NULL){
         arr = malloc(sizeof(char *) * 1);
         arr[0] = NULL;
         return arr;
     }
-    arr = get_array(str, &count);
-    arr[count] = NULL;
+    nb_words = count_words(str);
+    arr = malloc(sizeof(char *) * (nb_words + 1));
+    arr[nb_words] = NULL;
+    for (int i = 0; str[i] != '\0' && j < nb_words;) {
+        while (!is_alpha_num(str[i++]));
+        arr[j] = fill_array(str, i - 1);
+        j++;
+        while (is_alpha_num(str[i++]));
+    }
     return arr;
 }

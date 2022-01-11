@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2021
-** my_strdup
+** star.c
 ** File description:
-** Recreate the strdup function
+** star.c
 */
 
 #include <stdlib.h>
@@ -10,11 +10,11 @@
 int my_strlen(char const *str);
 char *my_strcpy(char *dest, char const *src);
 
-char *my_strdup(char const *src)
+char *my_strdup(char const *str)
 {
-    int needed = my_strlen(src) + 1;
-    char *new = malloc(needed);
+    int len = my_strlen(str);
+    char *new_str = malloc(sizeof(char) * (len + 1));
 
-    my_strcpy(new, src);
-    return new;
+    my_strcpy(new_str, str);
+    return new_str;
 }

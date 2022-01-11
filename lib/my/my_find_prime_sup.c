@@ -1,19 +1,17 @@
 /*
 ** EPITECH PROJECT, 2021
-** my_find_prime_sub
+** star.c
 ** File description:
-** Return the nearest prime number from a given number
+** star.c
 */
 
 int my_is_prime(int nb);
 
 int my_find_prime_sup(int nb)
 {
-    int i = nb;
-
-    while (1) {
-        if (my_is_prime(i))
-            return i;
-        i++;
-    }
+    if (nb == 0 || nb == 1)
+        return 0;
+    while (my_is_prime(nb) == 0)
+        nb++;
+    return nb;
 }

@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2021
-** my_showstr
+** star.c
 ** File description:
-** Show a string
+** star.c
 */
 
 int my_showstr(char const *str)

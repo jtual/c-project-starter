@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2021
-** my_showmem
+** star.c
 ** File description:
-** Show memory
+** star.c
 */
 
 int my_showmem(char const *str, int size)

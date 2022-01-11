@@ -1,14 +1,22 @@
 /*
 ** EPITECH PROJECT, 2021
-** my_str_isnum
+** star.c
 ** File description:
-** Return 1 if string contains only digits, else return 0
+** star.c
 */
+
+#include <stdio.h>
 
 int my_str_isnum(char const *str)
 {
-    for (int i = 0; str[i] != '\0'; i++) {
-        if (!(str[i] >= '0' && '9' >= str[i]))
+    int i = 0;
+
+    if (str[0] == 0)
+        return 1;
+    while (str[i] != '\0') {
+        if (str[i] > '0' && str[i] < '9')
+            i++;
+        else
             return 0;
     }
     return 1;

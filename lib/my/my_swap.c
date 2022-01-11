@@ -1,15 +1,15 @@
 /*
 ** EPITECH PROJECT, 2021
-** my_swap
+** my_swap.c
 ** File description:
-** Swap the content of 2 integers
+** my swap
 */
-
-char my_putchar(char c);
 
 void my_swap(int *a, int *b)
 {
-    int temp = *a;
+    int c = 0;
+
+    c = *a;
     *a = *b;
-    *b = temp;
+    *b = c;
 }

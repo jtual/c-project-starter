@@ -1,18 +1,18 @@
 /*
 ** EPITECH PROJECT, 2021
-** my_isneg
+** my_print_digits.c
 ** File description:
-** Print N if number is negative, however, print P
+** print digits in ascending order
 */
 
 void my_putchar(char c);
 
 int my_isneg(int n)
 {
-    if (n < 0)
-        my_putchar('N');
-    else if (n >= 0)
+    if (n >= 0)
         my_putchar('P');
+    else
+        my_putchar('N');
     my_putchar('\n');
     return 0;
 }

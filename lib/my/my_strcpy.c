@@ -1,17 +1,16 @@
 /*
 ** EPITECH PROJECT, 2021
-** my_strcpy
+** star.c
 ** File description:
-** Copy a string into another
+** star.c
 */
 
 char *my_strcpy(char *dest, char const *src)
 {
-    int i;
+    int i = 0;
 
-    for (i = 0; src[i] != '\0'; i++) {
+    for (; src[i] != '\0'; i++)
         dest[i] = src[i];
-    }
     dest[i] = '\0';
     return dest;
 }
