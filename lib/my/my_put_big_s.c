@@ -18,7 +18,7 @@ void display_zero(char c)
         my_putchar('0');
 }
 
-void my_put_S(char *str)
+void my_put_big_s(char *str)
 {
     int i = 0;
 

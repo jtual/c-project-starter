@@ -8,11 +8,6 @@
 #ifndef MY_H_
     #define MY_H_
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <stddef.h>
-
     void my_putchar(char c);
     int my_isneg(int nb);
     int my_put_nbr(int nb);
@@ -50,9 +45,9 @@
     void my_put_unsigned(int nb);
     void my_put_oct(int nbr);
     void my_put_x(int nbr);
-    void my_put_X(int nbr);
+    void my_put_big_x(int nbr);
     void my_put_b(int nbr);
-    void my_put_S(char *str);
+    void my_put_big_s(char *str);
     int my_get_oct(int nbr, int *result);
 
 #endif/* MY_H_ */

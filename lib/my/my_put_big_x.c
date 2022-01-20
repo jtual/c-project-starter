@@ -7,7 +7,7 @@
 
 #include "my.h"
 
-void my_put_X(int nbr)
+void my_put_big_x(int nbr)
 {
     int res = nbr % 16;
 
