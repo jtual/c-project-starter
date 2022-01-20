@@ -1,5 +1,5 @@
 ##
-## EPITECH PROJECT, 2021
+## EPITECH PROJECT, 2022
 ## Makefile
 ## File description:
 ## Makefile that build the project
@@ -9,7 +9,7 @@ NAME		= ${PROJECT_NAME}
 
 CFLAGS		= -Wall -Wextra -I include
 
-LDFLAGS		= -L lib/my -lmy -L lib/my_printf -lmy_printf
+LDFLAGS		= -L lib/my -lmy
 
 SRC_DIR 	= src/
 
@@ -26,7 +26,6 @@ all:		$(NAME)
 
 build_libs:
 	make -C lib/my
-	make -C lib/my_printf
 
 clean:
 	$(RM) $(OBJ)
